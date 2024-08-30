@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', displayCart);
 
 
      
-// Giriş yapma fonksiyonu
+// Log in function
 function login()
 {
 let USER_NAME= document.querySelector("#userName").value
@@ -132,7 +132,7 @@ displayWelcomeMessage();
  
 }
 
-// Kullanıcıyı karşılama ve oturum bilgilerini gösterme
+// Login information 
 function displayWelcomeMessage()
 {
     const userInfo= localStorage.getItem("User_Name")
@@ -146,7 +146,7 @@ function displayWelcomeMessage()
     }
 }
 
-// Çıkış yapma fonksiyonu
+// logout function
 
 function logout()
 {
@@ -156,6 +156,27 @@ function logout()
     
 }
 
-// Sayfa yüklendiğinde kullanıcı oturumunu kontrol et
+// when the loading page check the user
 document.addEventListener('DOMContentLoaded', displayWelcomeMessage);
 
+
+
+
+//excersize
+
+let counter = localStorage.getItem("counter") ? Number(localStorage.getItem("counter")) : 0
+let counterDOM = document.querySelector("#counter")
+let increaseDOM = document.querySelector("#increase")
+let decreaseDOM = document.querySelector("#decrease")
+
+counterDOM.innerHTML = counter
+
+increaseDOM.addEventListener("click", clickEvent)
+decreaseDOM.addEventListener("click", clickEvent)
+
+function clickEvent()
+{
+    this.id == "increase" ? counter += 1 : counter -=1
+    localStorage.setItem("counter",counter)
+    counterDOM.innerHTML = counter
+}
